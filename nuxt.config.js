@@ -1,6 +1,9 @@
 import VuetifyLoaderPlugin from 'vuetify-loader/lib/plugin'
 import pkg from './package'
 
+require('dotenv').config()
+const { YOUTUBE_API_KEY } = process.env
+
 export default {
   mode: 'spa',
 
@@ -73,5 +76,9 @@ export default {
     */
     extend(config, ctx) {
     }
+  },
+
+  env: {
+    YOUTUBE_API_KEY
   }
 }
