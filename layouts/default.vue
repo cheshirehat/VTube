@@ -32,9 +32,7 @@
       <v-toolbar-side-icon @click="drawer = !drawer" />
     </v-toolbar>
     <v-content>
-      <v-container>
         <nuxt />
-      </v-container>
     </v-content>
 
     <v-footer
