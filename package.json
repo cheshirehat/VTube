@@ -19,7 +19,8 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "vuetify": "^1.5.5",
-    "vuetify-loader": "^1.2.1"
+    "vuetify-loader": "^1.2.1",
+    "vuex-persistedstate": "^2.5.4"
   },
   "devDependencies": {
     "nodemon": "^1.18.9",
