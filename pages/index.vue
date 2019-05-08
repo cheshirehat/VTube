@@ -1,73 +1,45 @@
 <template>
-  <v-layout
-    column
-    justify-center
-    align-center
-  >
-    <v-flex
-      xs12
-      sm8
-      md6
-    >
-      <div class="text-xs-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">Welcome to the Vuetify + Nuxt.js template</v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>For more information on Vuetify, check out the <a
-            href="https://vuetifyjs.com"
-            target="_blank"
-          >documentation</a>.</p>
-          <p>If you have questions, please join the official <a
-            href="https://chat.vuetifyjs.com/"
-            target="_blank"
-            title="chat"
-          >discord</a>.</p>
-          <p>Find a bug? Report it on the github <a
-            href="https://github.com/vuetifyjs/vuetify/issues"
-            target="_blank"
-            title="contribute"
-          >issue board</a>.</p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-          >Nuxt Documentation</a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-          >Nuxt GitHub</a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            flat
-            nuxt
-            to="/inspire"
-          >Continue</v-btn>
-        </v-card-actions>
+  <v-layout row wrap style="margin: 32px;">
+    <v-flex xs12 style="margin-bottom: 24px;">
+      <div class="title font-weight-medium font-italic">チャンネル一覧</div>
+    </v-flex>
+    <v-flex v-for="v in　vTubers" xs1.5 style="text-align: center; margin-bottom: 8px;">
+      <v-card style="margin-right: 8px; padding: 16px;">
+      <v-avatar size="100">
+        <img :src="v.thumbnail" alt="">
+      </v-avatar>
+      <p style="margin: 0; margin-top: 8px;">{{ v.name }}</p>
+      <nuxt-link to="detail" @click.native="submit(v)"><Button /></nuxt-link>
       </v-card>
     </v-flex>
   </v-layout>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import Button from '@/components/Button'
+import virtualYoutuber from '@/lib/virtualYoutuber'
 
 export default {
   components: {
-    Logo,
-    VuetifyLogo
+    Button,
+  },
+  mounted() {
+  },
+  computed: {
+    vTubers() {
+      return virtualYoutuber
+    },
+  },
+  methods: {
+    submit(value) {
+      this.$store.commit('setVTuberData', value)
+    }
   }
 }
 </script>
+
+<style lang="scss" scoped>
+a {
+  text-decoration: none;
+}
+</style>
