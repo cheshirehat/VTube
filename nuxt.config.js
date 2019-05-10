@@ -44,7 +44,8 @@ export default {
   */
   plugins: [
     '@/plugins/vuetify',
-    { src: "~plugins/persistedstate.js", ssr: false }
+    { src: "~plugins/persistedstate.js", ssr: false },
+    { src: "~plugins/vue-youtube.js" }
   ],
 
   /*
