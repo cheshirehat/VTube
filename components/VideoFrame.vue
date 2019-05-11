@@ -1,16 +1,35 @@
 <template>
   <div class="youtube">
-    <iframe type="text/html" width="600" height="600"
-    src="http://www.youtube.com/embed/HZleluBJrjA?autoplay=1&origin=http://example.com"
-    frameborder="0"/>
+    <youtube
+      ref="youtube"
+      :video-id="videoId"
+      :fitParent='true'
+      :resize='true'
+      :player-vars= "playerVars"
+    />
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    videoId: String
+  },
+  data () {
+    return {
+      playerVars: {
+        autoplay: 1,
+        origin: window.location.origin
+      }
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .youtube {
   position: relative;
   width: 80%;
-  padding-top: 56.25%;
 }
 .youtube iframe {
   position: absolute;
