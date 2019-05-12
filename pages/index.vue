@@ -3,7 +3,7 @@
     <v-flex xs12 style="margin-bottom: 24px;">
       <div class="title font-weight-medium">チャンネル一覧</div>
     </v-flex>
-    <v-flex v-for="v in　vTubers" xs1.5 style="text-align: center; margin-bottom: 8px;">
+    <v-flex v-for="v in vTubers" xs1.5 style="text-align: center; margin-bottom: 8px;">
       <v-card style="margin-right: 8px; padding: 16px;">
       <v-avatar size="100">
         <img :src="v.thumbnail" alt="">
