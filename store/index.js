@@ -22,7 +22,7 @@ export const mutations = {
     state.movie = value.data.items
   },
   setVideoId(state, value) {
-    state.videoId = value.data.items[0].id.videoId
+    state.videoId = value
   }
 }
 
@@ -34,6 +34,6 @@ export const actions = {
   async getVTuberMovie({commit, state}) {
     const res = await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${ state.vTuber.channelId }&maxResults=50&order=date&key=${ process.env.YOUTUBE_API_KEY }`)
     commit('setMovie', res)
-    commit('setVideoId',res)
+    commit('setVideoId',res.data.items[0].id.videoId)
   }
 }
