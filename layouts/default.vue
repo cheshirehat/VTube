@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app dark class="font-italic">
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -30,6 +30,7 @@
       app
     >
       <v-toolbar-side-icon @click="drawer = !drawer" />
+      <nuxt-link to="/"><p class="display-1" style="margin-top: 16px;">VTube</p></nuxt-link>
     </v-toolbar>
     <v-content>
         <nuxt />
@@ -71,3 +72,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+
+a {
+  text-decoration: none;
+  color: #F5F5F5;
+}
+</style>
