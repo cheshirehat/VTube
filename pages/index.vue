@@ -1,7 +1,7 @@
 <template>
   <v-layout row wrap style="margin: 32px;">
     <v-flex xs12 style="margin-bottom: 24px;">
-      <div class="title font-weight-medium font-italic">チャンネル一覧</div>
+      <div class="title font-weight-medium">チャンネル一覧</div>
     </v-flex>
     <v-flex v-for="v in　vTubers" xs1.5 style="text-align: center; margin-bottom: 8px;">
       <v-card style="margin-right: 8px; padding: 16px;">
@@ -33,6 +33,8 @@ export default {
   methods: {
     submit(value) {
       this.$store.commit('setVTuberData', value)
+      this.$store.dispatch('getVTuberData')
+      this.$store.dispatch('getVTuberMovie')
     }
   }
 }
