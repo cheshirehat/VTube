@@ -18,6 +18,7 @@
 <script>
 import Button from '@/components/Button'
 import virtualYoutuber from '@/lib/virtualYoutuber'
+import _ from 'lodash'
 
 export default {
   components: {
@@ -27,7 +28,7 @@ export default {
   },
   computed: {
     vTubers() {
-      return virtualYoutuber
+      return this.shuffle(virtualYoutuber)
     },
   },
   methods: {
@@ -35,6 +36,9 @@ export default {
       this.$store.commit('setVTuberData', value)
       this.$store.dispatch('getVTuberData')
       this.$store.dispatch('getVTuberMovie')
+    },
+    shuffle(values) {
+      return _.shuffle(values)
     }
   }
 }
